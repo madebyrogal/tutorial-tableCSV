@@ -1,0 +1,9 @@
+[ignore]
+<PROJECT_ROOT>/build/.*
+<PROJECT_ROOT>/coverage/.*
+<PROJECT_ROOT>/docs/.*
+<PROJECT_ROOT>/tests/.*
+
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src

@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// @flow
+import * as React from 'react'
+import { Router, Route, Switch } from 'react-router-dom'
+import { history } from 'store/history'
+import { path } from 'config/path'
+import { GlobalStyle } from 'asset/style/global'
+import { PageHome } from 'component/page/home'
 
-class App extends Component {
-  render() {
+type Props = {}
+
+class App extends React.PureComponent<Props> {
+  render(): React.Node {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+        <React.Fragment>
+          <GlobalStyle />
+          <Router history={history}>
+            <Switch>
+              <Route exact path={path.home} component={PageHome} />
+            </Switch>
+          </Router>
+        </React.Fragment>
+    )
   }
 }
 
-export default App;
+export default App
