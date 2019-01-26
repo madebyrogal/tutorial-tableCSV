@@ -4,7 +4,7 @@ import { Router, Route, Switch } from 'react-router-dom'
 import { history } from 'store/history'
 import { path } from 'config/path'
 import { GlobalStyle } from 'asset/style/global'
-import { PageHome } from 'component/page/home'
+import { PageHomeContainer } from 'component/page/home/container'
 
 type Props = {}
 
@@ -15,7 +15,7 @@ class App extends React.PureComponent<Props> {
           <GlobalStyle />
           <Router history={history}>
             <Switch>
-              <Route exact path={path.home} component={PageHome} />
+              <Route exact path={path.home} component={PageHomeContainer} />
             </Switch>
           </Router>
         </React.Fragment>
