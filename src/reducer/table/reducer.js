@@ -12,6 +12,8 @@ import * as CONST from './consts'
 
 export type StateTable = {
   +data: List<List<string|number>>,
+  +selectedRow: ?number,
+  +selectedColumn: ?number,
 }
 
 type Action = AddColumnOnLeftAction | AddColumnOnRightAction | DeleteColumnAction | AddRowAboveAction | AddRowBelowAction | DeleteRowAction
@@ -24,6 +26,8 @@ const initData = List([
 
 const initState: StateTable = {
   data: initData,
+  selectedRow: 2, //TODO Calculate if there will be complicated initial data
+  selectedColumn: 2, //TODO Calculate if there will be complicated initial data
 }
 
 export function table (state: StateTable = initState, action: Action): StateTable {
@@ -34,6 +38,12 @@ export function table (state: StateTable = initState, action: Action): StateTabl
       return {
         ...state,
         data: state.data.setIn([rowIdx, cellIdx], value),
+      }
+    case CONST.SELECT_CELL:
+      return {
+        ...state,
+        selectedRow: action.payload.rowIdx,
+        selectedColumn: action.payload.cellIdx,
       }
     default:
       return state

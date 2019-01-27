@@ -6,7 +6,7 @@ import { Header } from 'component/layout/header'
 import { Content } from 'component/layout/content'
 import { Footer } from 'component/layout/footer'
 import { Table } from 'component/layout/table'
-import { TableMenu } from 'component/layout/table/menu'
+import { TableMenuContainer } from 'component/layout/table/menu/container'
 
 const PageHomeStyled = styled.div``
 
@@ -22,7 +22,7 @@ export class PageHome extends React.PureComponent<Props> {
       <PageHomeStyled>
         <Header />
         <Content>
-          <TableMenu />
+          <TableMenuContainer />
           <Table data={data} />
         </Content>
         <Footer />

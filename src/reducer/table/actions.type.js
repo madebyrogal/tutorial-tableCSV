@@ -52,3 +52,11 @@ export type SaveCellAction = {
     cellIdx: number,
   },
 }
+
+export type SelectCellAction = {
+  type: typeof CONST.SELECT_CELL,
+  payload: {
+    rowIdx: number,
+    cellIdx: number,
+  },
+}

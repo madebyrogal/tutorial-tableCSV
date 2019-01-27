@@ -3,7 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import type { ModelCell } from 'model/cell'
 import { style } from 'asset/style'
-import type { SaveCellFunction } from 'reducer/table/actions'
+import type { SaveCellFunction, SelectCellFunction } from 'reducer/table/actions'
 
 const TDStyled = styled.td`
   border-bottom: 1px solid ${style.color.gray};
@@ -19,6 +19,7 @@ type Props = {
   rowIdx: number,
   cellIdx: number,
   saveCell: SaveCellFunction,
+  selectCell: SelectCellFunction,
 }
 
 export class Cell extends React.PureComponent<Props> {
@@ -33,6 +34,7 @@ export class Cell extends React.PureComponent<Props> {
     const cellElem = this.cellElem.current
     
     if(cellElem) {
+      this.props.selectCell(this.props.rowIdx, this.props.cellIdx)
       cellElem.setAttribute('contenteditable', "true")
       cellElem.focus()
     }
