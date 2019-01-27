@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const ContentStyled = styled.div`
   box-sizing: content-box;
-  padding: 20px;
+  padding: 20px 20px 80px;
 `
 
 type Props = {

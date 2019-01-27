@@ -14,6 +14,7 @@ import { TableMenu } from './index'
 const mapStateToProps = (state: State) => ({
   selectedRow: state.table.selectedRow,
   selectedColumn: state.table.selectedColumn,
+  data: state.table.data.toJS(),
 })
 
 export const TableMenuContainer = connect(mapStateToProps, {

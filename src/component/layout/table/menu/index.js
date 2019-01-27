@@ -16,6 +16,9 @@ import type {
   DeleteRowFunction,
   DeleteColumnFunction,
 } from 'reducer/table/actions'
+import { IconExportToCSV } from '../../icon/exportToCSV'
+import type { ModelTable } from '../../../../model/table'
+import { prepareCSVContentFromArray } from '../../../../utils/csv'
 
 const TableMenuStyled = styled.div`
   width: 100%;
@@ -24,11 +27,13 @@ const TableMenuStyled = styled.div`
   background-color: ${style.color.gray};
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 type Props = {
   selectedRow: number,
   selectedColumn: number,
+  data: ModelTable,
   addRowAbove: AddRowAboveFunction,
   addRowBelow: AddRowBelowFunction,
   addColumnOnLeft: AddColumnOnLeftFunction,
@@ -62,6 +67,11 @@ export class TableMenu extends React.PureComponent<Props> {
     this.props.deleteColumn(this.props.selectedColumn)
   }
   
+  handleExportToCSV = () => {
+    const csvContent = prepareCSVContentFromArray(this.props.data)
+    window.open(csvContent)
+  }
+  
   render (): React.Node {
     return (
       <TableMenuStyled>
@@ -74,6 +84,9 @@ export class TableMenu extends React.PureComponent<Props> {
         <div>
           <IconDeleteRow onClick={this.handleDeleteRow} />
           <IconDeleteColumn onClick={this.handleDeleteColumn} />
+        </div>
+        <div>
+          <IconExportToCSV onClick={this.handleExportToCSV}/>
         </div>
       </TableMenuStyled>
     )

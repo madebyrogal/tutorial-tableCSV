@@ -7,10 +7,13 @@ import type { SaveCellFunction, SelectCellFunction } from 'reducer/table/actions
 
 const TDStyled = styled.td`
   border-bottom: 1px solid ${style.color.gray};
+  border-left: 1px solid ${style.color.gray};
   padding: 5px 10px;
   
   div {
     outline: none;
+    width: 100%;
+    min-height: 18px;
   }
 `
 
