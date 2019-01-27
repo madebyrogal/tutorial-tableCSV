@@ -1,9 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## How to start
+## Live Demo
+Visit [http://tablecsv.madebyrogal.com](http://tablecsv.madebyrogal.com)
+
+## How to start development
 
 ### Clone repository
-`git clone `
+`git clone git@github.com:madebyrogal/tutorial-tableCSV.git`
 
 ### Run live app in your browser
 `npm run start`
@@ -19,6 +22,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
+
+### `npm run flow`
+
+Check flowtype errors. More info how flowtype works you can find on official documentation
+[flowtype docs](https://flow.org/)
 
 ### `npm run test`
 
