@@ -3,6 +3,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import type { ModelCell } from 'model/cell'
 import { style } from 'asset/style'
+import type { SaveCellFunction } from 'reducer/table/actions'
 
 const TDStyled = styled.td`
   border-bottom: 1px solid ${style.color.gray};
@@ -14,7 +15,10 @@ const TDStyled = styled.td`
 `
 
 type Props = {
-  cell: ModelCell
+  cell: ModelCell,
+  rowIdx: number,
+  cellIdx: number,
+  saveCell: SaveCellFunction,
 }
 
 export class Cell extends React.PureComponent<Props> {
@@ -39,8 +43,9 @@ export class Cell extends React.PureComponent<Props> {
   
     if(cellElem) {
       cellElem.removeAttribute('contenteditable')
-      // TODO Save cell value
-      // const cellValue = cellElem.textContent
+      const cellValue = cellElem.textContent
+      
+      this.props.saveCell(cellValue, this.props.rowIdx, this.props.cellIdx)
     }
   }
   

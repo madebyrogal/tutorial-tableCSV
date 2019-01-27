@@ -16,7 +16,7 @@ export class Table extends React.PureComponent<Props> {
     return (
       <TableStyled>
         <tbody>
-          {data.map((row: ModelRow, idx: number) => <Row key={idx} row={row}/>)}
+          {data.map((row: ModelRow, idx: number) => <Row key={idx} rowIdx={idx} row={row}/>)}
         </tbody>
       </TableStyled>
     )

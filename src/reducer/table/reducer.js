@@ -1,5 +1,4 @@
 // @flow
-import type { ModelTable } from 'model/table'
 import { List } from 'immutable'
 import type {
   AddColumnOnLeftAction,
@@ -9,9 +8,10 @@ import type {
   AddRowBelowAction,
   DeleteRowAction
 } from './actions.type'
+import * as CONST from './consts'
 
 export type StateTable = {
-  +data: ModelTable,
+  +data: List<List<string|number>>,
 }
 
 type Action = AddColumnOnLeftAction | AddColumnOnRightAction | DeleteColumnAction | AddRowAboveAction | AddRowBelowAction | DeleteRowAction
@@ -28,6 +28,13 @@ const initState: StateTable = {
 
 export function table (state: StateTable = initState, action: Action): StateTable {
   switch (action.type) {
+    case CONST.SAVE_CELL:
+      const { value, rowIdx, cellIdx } = action.payload
+      
+      return {
+        ...state,
+        data: state.data.setIn([rowIdx, cellIdx], value),
+      }
     default:
       return state
   }

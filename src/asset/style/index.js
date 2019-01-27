@@ -2,7 +2,8 @@
 export const style = {
   color: {
     blue: '#007DFF',
-    gray: 'grey',
+    gray: '#eceff1',
+    grayDark: 'silver',
     black: '#000',
     white: '#fff'
   },

@@ -6,7 +6,8 @@ import type {
   DeleteColumnAction,
   AddRowAboveAction,
   AddRowBelowAction,
-  DeleteRowAction
+  DeleteRowAction,
+  SaveCellAction,
 } from './actions.type'
 
 export type AddColumnOnLeftFunction = (index: number) => AddColumnOnLeftAction
@@ -55,6 +56,16 @@ export const deleteRow: DeleteRowFunction = (index) => ({
   payload: {
     index,
   },
+})
+
+export type SaveCellFunction = (value: string, rowIdx: number, cellIdx: number) => SaveCellAction
+export const saveCell: SaveCellFunction = (value, rowIdx, cellIdx) => ({
+  type: CONST.SAVE_CELL,
+  payload: {
+    value,
+    rowIdx,
+    cellIdx,
+  }
 })
 
 

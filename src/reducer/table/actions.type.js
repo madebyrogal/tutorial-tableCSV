@@ -43,3 +43,12 @@ export type DeleteRowAction = {
     index: number,
   },
 }
+
+export type SaveCellAction = {
+  type: typeof CONST.SAVE_CELL,
+  payload: {
+    value: string,
+    rowIdx: number,
+    cellIdx: number,
+  },
+}

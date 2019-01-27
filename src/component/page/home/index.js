@@ -1,11 +1,12 @@
 // @flow
 import * as React from 'react'
 import styled from 'styled-components'
+import type { ModelTable } from 'model/table'
 import { Header } from 'component/layout/header'
 import { Content } from 'component/layout/content'
 import { Footer } from 'component/layout/footer'
-import { Table } from '../../layout/table'
-import type { ModelTable } from '../../../model/table'
+import { Table } from 'component/layout/table'
+import { TableMenu } from 'component/layout/table/menu'
 
 const PageHomeStyled = styled.div``
 
@@ -21,6 +22,7 @@ export class PageHome extends React.PureComponent<Props> {
       <PageHomeStyled>
         <Header />
         <Content>
+          <TableMenu />
           <Table data={data} />
         </Content>
         <Footer />

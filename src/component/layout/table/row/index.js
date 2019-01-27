@@ -3,23 +3,24 @@ import * as React from 'react'
 import styled from 'styled-components'
 import type { ModelRow } from 'model/row'
 import type { ModelCell } from 'model/cell'
-import { Cell } from '../cell'
+import { CellContainer } from '../cell/container'
 
 const TRStyled = styled.tr`
 
 `
 
 type Props = {
-  row: ModelRow
+  row: ModelRow,
+  rowIdx: number,
 }
 
 export class Row extends React.PureComponent<Props> {
   render (): React.Node {
-    const { row } = this.props
+    const { row, rowIdx } = this.props
     
     return (
       <TRStyled>
-        {row.map((cell: ModelCell, idx: number) => <Cell key={idx} cell={cell} />)}
+        {row.map((cell: ModelCell, idx: number) => <CellContainer key={idx} rowIdx={rowIdx} cellIdx={idx} cell={cell} />)}
       </TRStyled>
     )
   }
